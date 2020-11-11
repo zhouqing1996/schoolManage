@@ -1,0 +1,123 @@
+
+/*主页*/
+.header{
+  height: 300px;
+  font-size: 20px;
+  width: 100%;
+  float: left;
+  background-color: darkturquoise;
+  vertical-align: middle;
+  display: inline-block;
+}
+.logo{
+  margin-left: 40px;
+  float: left;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  margin-top: 20px;
+}
+
+/*.nav{*/
+  /*margin-left: 30px;*/
+  /*float: right!important;*/
+  /*align-items: center;*/
+  /*!*display: flex;*!*/
+  /*justify-content: center;*/
+  /*vertical-align: middle;*/
+/*}*/
+/*.nav ul li{*/
+  /*list-style: none;*/
+  /*float: left;*/
+  /*width: 200px;*/
+  /*text-decoration: none;*/
+  /*!*border: 0px solid black;*!*/
+  /*!*border-radius: 5px;*!*/
+/*}*/
+/*.drop-down{*/
+  /*position: relative;*/
+  /*float: left;*/
+  /*align-items: center;*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*vertical-align: middle;*/
+/*}*/
+/*.drop-down-content{*/
+  /*padding: 0;*/
+  /*display: none;*/
+  /*position: absolute;*/
+/*}*/
+/*.drop-down:hover .drop-down-content{*/
+  /*display: block;*/
+  /*clear: both;*/
+/*}*/
+/*.nav li:hover>a{*/
+  /*background-color: #FF0000;*/
+/*}*/
+.ul .a{
+  font-size: 20px;
+  list-style: none;
+  text-decoration: none;
+  color: #000000;
+  width: 100px;
+  text-align: center;
+  border: 0px solid black;
+  border-radius: 5px;  /*圆角*/
+  margin-top: 3px;
+}
+a{
+  display: block;
+  text-decoration: none;
+}
+.plat{
+  display: none;
+}
+.nav:hover .plat{
+  display: block;
+  clear: both;
+  position: relative;
+  text-align: left;
+}
+.nav{
+  float: left;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav1{
+  float: left;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav2{
+  float: left;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.plat li:hover>a{
+   background-color: dimgrey;
+ }
+
+.aside{
+  height: 90vh;
+  width:150px;
+  background-color: #0ea0db;
+  text-align: left;
+}
+.main{
+  background-color: #FFFFFF;
+  height: 80vh;
+}
+.footer{
+  background-color: #333333;
+  color: #FFFFFF;
+}
