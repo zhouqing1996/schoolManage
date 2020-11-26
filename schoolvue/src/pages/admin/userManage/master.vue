@@ -2,7 +2,8 @@
     <!--校长用户-->
   <div>
     <div class="search">
-      <input value="搜索内容"/><button>搜索</button>
+      <span>【校长用户】</span>
+      <input value="搜索内容" v-model="searchname"/><button @click="searchName">搜索</button>
       <button @click="dialogFormVisibleadd=true">添加用户</button>
       <!--<button class="btn3 el-icon-circle-plus-outline" @click="dialogFormVisibleadd = true">添加</button>-->
       <el-dialog title="添加用户" :visible.sync="dialogFormVisibleadd">
@@ -72,6 +73,7 @@
               username:'',
               no:''
             },
+            searchname:'',
             // 翻页相关
             currentPage: 1,
             totalPage: 1,
@@ -86,6 +88,29 @@
         this.inputExcel = document.getElementById('inputExcel')
       },
       methods:{
+          searchName:function(){
+            let that =this
+            if(that.searchname=='')
+            {
+              that.$alert('搜索内容为空！','警告',{
+                confirmButtonText:'确定'
+              })
+            }
+            else
+            {
+              that.$http.post('/admin/user/search',{
+                flag:2,
+                name:that.searchname
+              }).then(function (res) {
+                console.log(res.data)
+                that.masterList = res.data.data
+                that.totalPage =Math.ceil(that.masterList.length/that.pageSize)
+                that.totalPage=that.totalPage==0?1:that.totalPage
+                that.setCurrentPageDate()
+              })
+            }
+
+          },
         getMasterList:function ()
           {
             let that = this

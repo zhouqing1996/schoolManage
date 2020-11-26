@@ -8,7 +8,7 @@
             中学学生档案管理系统
           </span>
         <div >
-          <span class="nav1" style="margin-left: 40vw"><i class="el-icon-sunny">新的</i> </span>
+          <span class="nav1" ><i class="el-icon-sunny">新的</i> </span>
           <span class="nav2"><i class="el-icon-position">技术支持</i></span>
           <ul class="nav ul a">
             <a herf="#" class="ul a">
@@ -23,13 +23,13 @@
       </div>
     </el-header>
     <el-container>
-      <el-aside class="aside">
+      <el-aside class="aside" style="width: 200px">
         <el-menu
           background-color="#545c64"
           text-color="#fff"
           active-text-color="#ffd04b"
           :unique-opened="true"
-          style="font-size: 30px;color: #45B549">
+          style="font-size: 30px;color: #45B549;width: 200px">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -37,14 +37,29 @@
             </template>
             <el-menu-item index="1-1">
               <router-link to="/admin/userManage/master">
-                <i class="el-icon-guide"></i>校长用户</router-link>
+                <i class="el-icon-guide"></i>校长用户
+              </router-link>
             </el-menu-item>
             <el-menu-item index="1-2">
-              <i class="el-icon-coin"></i>教师用户</el-menu-item>
+              <router-link to="/admin/userManage/teacher">
+              <i class="el-icon-coin"></i>教师用户
+              </router-link>
+            </el-menu-item>
             <el-menu-item index="1-3">
-              <i class="el-icon-connection"></i>学生用户</el-menu-item>
+              <router-link to="/admin/userManage/student">
+              <i class="el-icon-connection"></i>学生用户
+              </router-link>
+            </el-menu-item>
             <el-menu-item index="1-4">
-              <i class="el-icon-wallet"></i>家长用户</el-menu-item>
+              <router-link to="/admin/userManage/parents">
+              <i class="el-icon-wallet"></i>家长用户
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="1-4">
+              <router-link to="/admin/userManage/useran">
+                <i class="el-icon-guide"></i>用户数据分析
+              </router-link>
+            </el-menu-item>
           </el-submenu>
           <el-menu-item index="2">
             <i class="el-icon-menu"></i>
@@ -58,22 +73,22 @@
             <i class="el-icon-setting"></i>
             <span slot="title">毕业生问题</span>
           </el-menu-item>
-          <el-submenu index="5">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>用户管理</span>
-            </template>
-            <el-menu-item index="5-1">
-              <router-link to="/admin/userManage/master">
-                <i class="el-icon-guide"></i>校长用户</router-link>
-              </el-menu-item>
-            <el-menu-item index="5-2">
-              <i class="el-icon-coin"></i>教师用户</el-menu-item>
-            <el-menu-item index="5-3">
-              <i class="el-icon-connection"></i>学生用户</el-menu-item>
-            <el-menu-item index="5-4">
-              <i class="el-icon-wallet"></i>家长用户</el-menu-item>
-          </el-submenu>
+<!--          <el-submenu index="5">-->
+<!--            <template slot="title">-->
+<!--              <i class="el-icon-location"></i>-->
+<!--              <span>用户管理</span>-->
+<!--            </template>-->
+<!--            <el-menu-item index="5-1">-->
+<!--              <router-link to="/admin/userManage/master">-->
+<!--                <i class="el-icon-guide"></i>校长用户</router-link>-->
+<!--              </el-menu-item>-->
+<!--            <el-menu-item index="5-2">-->
+<!--              <i class="el-icon-coin"></i>教师用户</el-menu-item>-->
+<!--            <el-menu-item index="5-3">-->
+<!--              <i class="el-icon-connection"></i>学生用户</el-menu-item>-->
+<!--            <el-menu-item index="5-4">-->
+<!--              <i class="el-icon-wallet"></i>家长用户</el-menu-item>-->
+<!--          </el-submenu>-->
         </el-menu>
       </el-aside>
       <el-container>

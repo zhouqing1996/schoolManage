@@ -11,8 +11,7 @@ class UserController extends Controller
     }
     public function PasswordDecry($password,$encryptedData="zhouqing")
     {
-        $de = \Yii::$app->getSecurity()->decryptByPassword(base64_decode($password),$encryptedData);
-        return $de;
+        return \Yii::$app->getSecurity()->decryptByPassword(base64_decode($password),$encryptedData);
     }
     public function PasswordEncry($password,$encryptedData="zhouqing")
     {
@@ -22,11 +21,10 @@ class UserController extends Controller
     //    计算userid
     public function Num()
     {
-        $num =(new Query())
+        return (new Query())
             ->select('*')
             ->from('user')
             ->max('userid');
-        return $num;
     }
 //    自定义密码
     public function Defaultpass($flag)
@@ -39,8 +37,19 @@ class UserController extends Controller
             case 5:$pass = 'parents@123';break;
             default:break;
         }
-        $pass =$this->PasswordEncry($pass);
+//        $pass =$this->PasswordEncry($pass);
         return $pass;
+    }
+//    查找家长对应的学生的名字，根据no和角色找名字
+    public function FindParentsName($no)
+    {
+        $query =(new Query())
+            ->select('*')
+            ->from('user')
+            ->where(['no'=>$no])
+            ->andWhere(['role'=>4])
+            ->one();
+        return $query['username'];
     }
 //    查看用户：
 //参数:flag: 1：管理员 :2:校长 3：教师 4：学生 5：家长
@@ -54,16 +63,31 @@ class UserController extends Controller
             ->where(['role'=>$flag])
             ->all();
         $list =[];
+//        return array('data'=>$query,'msg'=>'查找结果');
         for($i=0;$i<count($query);$i++)
         {
-            $list[$i]['userid']=$query[$i]['userid'];
-            $list[$i]['no']=$query[$i]['no'];
-            $list[$i]['username']=$query[$i]['username'];
-            $list[$i]['role']=$query[$i]['role'];
-            $list[$i]['password']=$this->PasswordDecry($query[$i]['password']);
-            $list[$i]['token']=$query[$i]['token'];
-            $list[$i]['ip']=$query[$i]['ip'];
-            $list[$i]['status']=$query[$i]['status'];
+            if($query[$i]['role']==5)
+            {
+                $list[$i]['userid']=$query[$i]['userid'];
+                $list[$i]['no']=$this->FindParentsName($query[$i]['no']);
+                $list[$i]['username']=$query[$i]['username'];
+                $list[$i]['role']=$query[$i]['role'];
+                $list[$i]['password']=$this->PasswordDecry($query[$i]['password']);
+                $list[$i]['token']=$query[$i]['token'];
+                $list[$i]['ip']=$query[$i]['ip'];
+                $list[$i]['status']=$query[$i]['status'];
+            }
+            else
+            {
+                $list[$i]['userid']=$query[$i]['userid'];
+                $list[$i]['no']=$query[$i]['no'];
+                $list[$i]['username']=$query[$i]['username'];
+                $list[$i]['role']=$query[$i]['role'];
+                $list[$i]['password']=$this->PasswordDecry($query[$i]['password']);
+                $list[$i]['token']=$query[$i]['token'];
+                $list[$i]['ip']=$query[$i]['ip'];
+                $list[$i]['status']=$query[$i]['status'];
+            }
         }
         return array('data'=>$list,'msg'=>'查找结果');
     }
@@ -78,9 +102,10 @@ class UserController extends Controller
         $id = $request->post('userid');
         $newpass = $this->PasswordEncry($pass);
         $updateU = \Yii::$app->db->createCommand()->update('user', ['password' => $newpass], ['userid'=>$id])->execute();
+//        $depass = $this->PasswordDecry($newpass);
         if($updateU)
         {
-            return array('data'=>$newpass,'msg'=>'重置密码！');
+            return array('data'=>$pass,'msg'=>'重置密码！');
         }
     }
 //    删除用户
@@ -178,5 +203,27 @@ class UserController extends Controller
         }
         return array("data"=>$data,"msg"=>"导入成功");
     }
-
+//  查找用户
+//参数 flag;标志，搜索内容
+    public function actionSearch()
+    {
+        $request = \Yii::$app->request;
+        $flag =$request->post('flag');
+        $name = $request->post('name');
+        $query =(new Query())
+            ->select('*')
+            ->from('user')
+            ->where(['or',
+                ['like','username',$name],
+                ['like','no',$name],
+                ['like','userid',$name],
+                ])
+            ->andWhere(['role'=>$flag])
+            ->all();
+        for($i=0;$i<count($query);$i++)
+        {
+            $query[$i]['password']=$this->PasswordDecry($query[$i]['password']);
+        }
+        return array('data'=>$query,'msg'=>'搜索结果');
+    }
 }

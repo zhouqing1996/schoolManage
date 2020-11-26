@@ -19,10 +19,7 @@
         this.init()
       },
       watch:{
-        x(oldVal, newVal) {
-          this.drawBar();
-        },
-        y(oldVal, newVal) {
+        data(oldVal, newVal) {
           this.drawBar();
         },
         title(oldVal, newVal) {
@@ -40,17 +37,23 @@
           this.By =[];
           if (data != null) {
             data.forEach((value, index) => {
-              this.Bx.push(value.x);
-              this.By.push(value.y);
+              this.Bx.push("第"+value.num+"题");
+              this.By.push(value.value);
             });
           }
         },
         drawBar:function () {
             this.ToData(this.data,this.title)
+          console.log(this.Bx)
+          console.log(this.By)
           let myChart = this.$echarts.init(
             document.getElementById("BarChart")
           );
           myChart.setOption({
+            title:{
+              text:this.Btitle,
+              left:'center'
+            },
             color:['#3398D8'],
             tooltip:{
               trigger:'axis',
@@ -80,7 +83,7 @@
             ],
             series: [
               {
-                name: '直接访问',
+                name: '错误频次',
                 type: 'bar',
                 barWidth: '60%',
                 data: this.By

@@ -1,7 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
-// import HelloWorld from '@/components/HelloWorld'
+
+//画图实现
+import BarChart from '../components/BarChart'
+import CalendarHeatmap from "../components/CalenderHeatmap"
+import PieChart from "../components/PieChart"
+import RadarChart from '../components/RadarChart'
+import SLineChart from '../components/SLineChart'
+
 import Home from '../pages/Home'
 import Register from '../pages/register'
 import Forget from '../pages/forget'
@@ -10,9 +17,9 @@ import Login from '../pages/login'
 import NotFound from '../pages/404'
 
 
-import SLineChart from '../components/SLineChart'
-import CalenderHeatmap from '../components/CalenderHeatmap'
-import BarChart from '../components/BarChart'
+// import SLineChart from '../components/SLineChart'
+// import CalenderHeatmap from '../components/CalenderHeatmap'
+// import BarChart from '../components/BarChart'
 
 import My from '../pages/My'
 import ChangePwd from '../pages/Changepwd'
@@ -27,6 +34,11 @@ import AdminHome from '../pages/admin/AdminHome'
 import AdminIndex from '../pages/admin/AdminIndex'
 //用户管理
 import AdminUserMaster from '../pages/admin/userManage/master'
+import AdminUserTeacher from '../pages/admin/userManage/teacher'
+import AdminUserStudent from '../pages/admin/userManage/student'
+import AdminUserParents from '../pages/admin/userManage/parents'
+//数据分析
+import AdminUserAnalysis from '../pages/admin/userManage/userAnalysisi'
 
 import Data from '../pages/home/Data'
 export default new Router({
@@ -58,6 +70,38 @@ export default new Router({
             isLogin:true
           },
           component:AdminUserMaster
+        },
+        {
+          path:'/admin/userManage/teacher',
+          name:'AdminUserTeacher',
+          meta:{
+            isLogin:true
+          },
+          component:AdminUserTeacher
+        },
+        {
+          path:'/admin/userManage/student',
+          name:'AdminUserStudent',
+          meta:{
+            isLogin:true
+          },
+          component:AdminUserStudent
+        },
+        {
+          path:'/admin/userManage/parents',
+          name:'AdminUserParents',
+          meta:{
+            isLogin:true
+          },
+          component:AdminUserParents
+        },
+        {
+          path: '/admin/userManage/useran',
+          name: 'AdminManageAnalysis',
+          meta: {
+            isLogin: true
+          },
+          component: AdminUserAnalysis
         }
       ]
     },
@@ -85,30 +129,30 @@ export default new Router({
       },
       component:PForget
     },
-    {
-      path:'/slinechart',
-      name:'slinechart',
-      meta:{
-        isLogin:false
-      },
-      component:SLineChart
-    },
-    {
-      path:'/heatmap',
-      name:'heatmap',
-      meta:{
-        isLogin:false
-      },
-      component:CalenderHeatmap
-    },
-    {
-      path:'/barchart',
-      name:'barchart',
-      meta:{
-        isLogin:false
-      },
-      component:BarChart
-    },
+    // {
+    //   path:'/slinechart',
+    //   name:'slinechart',
+    //   meta:{
+    //     isLogin:false
+    //   },
+    //   component:SLineChart
+    // },
+    // {
+    //   path:'/heatmap',
+    //   name:'heatmap',
+    //   meta:{
+    //     isLogin:false
+    //   },
+    //   component:CalenderHeatmap
+    // },
+    // {
+    //   path:'/barchart',
+    //   name:'barchart',
+    //   meta:{
+    //     isLogin:false
+    //   },
+    //   component:BarChart
+    // },
     {
       path:'/my',
       name:'my',
@@ -117,14 +161,14 @@ export default new Router({
       },
       component:My
     },
-    {
-      path:'/data',
-      name:'data',
-      meta:{
-        isLogin:false
-      },
-      component:Data
-    },
+    // {
+    //   path:'/data',
+    //   name:'data',
+    //   meta:{
+    //     isLogin:false
+    //   },
+    //   component:Data
+    // },
     {
       path:'/changepwd',
       name:'changepwd',
