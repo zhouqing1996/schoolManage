@@ -9,7 +9,7 @@ import PieChart from "../components/PieChart"
 import RadarChart from '../components/RadarChart'
 import SLineChart from '../components/SLineChart'
 
-import Home from '../pages/Home'
+
 import Register from '../pages/register'
 import Forget from '../pages/forget'
 import Login from '../pages/login'
@@ -37,16 +37,25 @@ import AdminUserMaster from '../pages/admin/userManage/master'
 import AdminUserTeacher from '../pages/admin/userManage/teacher'
 import AdminUserStudent from '../pages/admin/userManage/student'
 import AdminUserParents from '../pages/admin/userManage/parents'
+//班级管理
+import AdminClassInfo from '../pages/admin/JiaoXueManage/ClassInfo'
+//科目管理
+import AdminSubjectInfo from '../pages/admin/JiaoXueManage/SubjectInfo'
+//年级管理
+import AdminGradeInfo from '../pages/admin/JiaoXueManage/GradeInfo'
 //数据分析
 import AdminUserAnalysis from '../pages/admin/userManage/userAnalysisi'
 
 import Data from '../pages/home/Data'
+//教师身份
+import TeacherHome from '../pages/teacher/teacherHome'
+import TeacherIndex from '../pages/teacher/teacherIndex'
+
 export default new Router({
   base:'/Manage/',
   mode:'hash',
   hash:true,
   routes: [
-
     {
       path: '/',
       name: 'Home',
@@ -102,8 +111,50 @@ export default new Router({
             isLogin: true
           },
           component: AdminUserAnalysis
+        },
+        {
+          path:'/admin/JiaoXueManage/classinfo',
+          name:'AdminClassInfo',
+          meta:{
+            isLogin:true
+          },
+          component:AdminClassInfo
+        },
+        {
+          path:'/admin/JiaoXueManage/subjectInfo',
+          name:'AdminSubjectInfo',
+          mets:{
+            isLogin:true
+          },
+          component:AdminSubjectInfo
+        },
+        {
+          path:'/admin/JiaoXueManage/gradeInfo',
+          name:'AdminGradeInfo',
+          meta: {
+            isLogin: true
+          },
+          component:AdminGradeInfo
         }
       ]
+    },
+    {
+      path: '/',
+      name: 'Home',
+      meta:{
+        isLogin:true,
+      },
+      component: TeacherHome,
+      children:[
+        {
+          path:'/teacher/index',
+          name:'TeacherIndex',
+          meta:{
+            isLogin:true
+          },
+          component:TeacherIndex
+        },
+        ]
     },
     {
       path:'/p/login',

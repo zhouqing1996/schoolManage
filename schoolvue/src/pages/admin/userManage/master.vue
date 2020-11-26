@@ -1,6 +1,14 @@
 <template>
     <!--校长用户-->
   <div>
+    <div>
+      <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/admin/index' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
+        <el-breadcrumb-item>校长管理</el-breadcrumb-item>
+      </el-breadcrumb>
+      <el-divider></el-divider>
+    </div>
     <div class="search">
       <span>【校长用户】</span>
       <input value="搜索内容" v-model="searchname"/><button @click="searchName">搜索</button>

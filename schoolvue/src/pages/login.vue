@@ -97,7 +97,7 @@
               else if(role==3)
               {
                 //教师
-                this.$router.push({path:'/user/index'})
+                this.$router.push({path:'/teacher/index'})
               }
               else if(role==4)
               {

@@ -1,11 +1,23 @@
 <template>
     <div>
-      <PieChart :sdata="PieData1" :t="pieTitle1" :subt="pieStitle1"></PieChart>
-      <div >
-        <PieChart :sdata="PieData2" :t="pieTitle2" :subt="pieStitle2" ></PieChart>
-        <PieChart :sdata="PieData3" :t="pieTitle3" :subt="pieStitle3" ></PieChart>
-        <PieChart :sdata="PieData4" :t="pieTitle4" :subt="pieStitle4" ></PieChart>
-      </div>
+      <el-row :gutter="24">
+        <el-col :span="10">
+          <div>
+            <PieChart :sdata="PieData1" :t="pieTitle1" :subt="pieStitle1"></PieChart>
+          </div>
+          <div>
+            <PieChart :sdata="PieData3" :t="pieTitle3" :subt="pieStitle3" ></PieChart>
+          </div>
+        </el-col>
+        <el-col :span="10">
+          <div>
+            <PieChart :sdata="PieData2" :t="pieTitle2" :subt="pieStitle2" ></PieChart>
+          </div>
+          <div>
+            <PieChart :sdata="PieData4" :t="pieTitle4" :subt="pieStitle4" ></PieChart>
+          </div>
+        </el-col>
+      </el-row>
     </div>
 </template>
 

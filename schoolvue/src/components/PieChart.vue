@@ -1,7 +1,7 @@
 <template>
     <!--饼图-->
   <div>
-    <div id="PieChart" ref="pieChart_ref" :style="{height: '400px',width:'50%'}"></div>
+    <div id="PieChart" ref="pieChart_ref" :style="{height: '300px',width:'300px'}"></div>
   </div>
 </template>
 

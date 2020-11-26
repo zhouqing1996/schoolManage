@@ -2,25 +2,34 @@
     <!--管理员主页-->
   <el-container >
     <el-header class="header">
-      <div >
-        <span class="logo">
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <span class="logo">
             <img src="../../assets/image/linggan.png" style="width: 30px;height: 30px;"/>
             中学学生档案管理系统
           </span>
-        <div >
-          <span class="nav1" ><i class="el-icon-sunny">新的</i> </span>
-          <span class="nav2"><i class="el-icon-position">技术支持</i></span>
-          <ul class="nav ul a">
-            <a herf="#" class="ul a">
-              <i class="el-icon-user"></i>
-              {{username}}</a>
-            <ul class="plat ul a">
-              <li><a href="http://www.baidu.com">个人信息</a></li>
-              <li><a @click="logout">注销</a></li>
-            </ul>
-          </ul>
-        </div>
-      </div>
+        </el-col>
+        <el-col :span="16">
+          <div style="margin-top: 20px;margin-right:30px;margin-left:30px;float: right">
+            <span>新的</span>
+            <span>技术支持</span>
+            <el-dropdown>
+              <el-button type="primary">
+                {{username}}
+              </el-button>
+              <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>
+                  <span>个人信息</span>
+                </el-dropdown-item>
+                <el-dropdown-item>
+                  <span @click="logout">注销</span>
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </el-dropdown>
+          </div>
+        </el-col>
+        <el-col :span="2"><div class="grid-content bg-purple"></div></el-col>
+      </el-row>
     </el-header>
     <el-container>
       <el-aside class="aside" style="width: 200px">
@@ -55,40 +64,108 @@
               <i class="el-icon-wallet"></i>家长用户
               </router-link>
             </el-menu-item>
-            <el-menu-item index="1-4">
+            <el-menu-item index="1-5">
               <router-link to="/admin/userManage/useran">
                 <i class="el-icon-guide"></i>用户数据分析
               </router-link>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item index="2">
-            <i class="el-icon-menu"></i>
-            <span >班级管理</span>
-          </el-menu-item>
-          <el-menu-item index="3" >
+          <el-submenu index="2">
+            <template slot="title">
+              <i class="el-icon-document"></i>
+              <span slot="title">教学管理</span>
+            </template>
+            <el-menu-item index="2-1" >
+              <router-link to="/admin/JiaoXueManage/gradeInfo">
+                <i class="el-icon-guide"></i>
+                年级管理
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="2-2" >
+              <router-link to="/admin/JiaoXueManage/subjectInfo">
+                <i class="el-icon-guide"></i>
+                科目管理
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="2-3">
+              <router-link to="/admin/JiaoXueManage/classinfo">
+                <i class="el-icon-menu"></i>
+                班级管理
+              </router-link>
+            </el-menu-item>
+          </el-submenu>
+          <el-submenu index="3">
+          <template slot="title">
             <i class="el-icon-document"></i>
-            <span slot="title">班级分配</span>
+            <span slot="title">档案管理</span>
+          </template>
+          <el-menu-item index="3-1" >
+            <router-link to="">
+              <i class="el-icon-setting"></i>
+              学生信息
+            </router-link>
           </el-menu-item>
-          <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">毕业生问题</span>
+          <el-menu-item index="3-2" >
+            <router-link to="">
+              <i class="el-icon-guide"></i>
+              学科考试
+            </router-link>
           </el-menu-item>
-<!--          <el-submenu index="5">-->
-<!--            <template slot="title">-->
-<!--              <i class="el-icon-location"></i>-->
-<!--              <span>用户管理</span>-->
-<!--            </template>-->
-<!--            <el-menu-item index="5-1">-->
-<!--              <router-link to="/admin/userManage/master">-->
-<!--                <i class="el-icon-guide"></i>校长用户</router-link>-->
-<!--              </el-menu-item>-->
-<!--            <el-menu-item index="5-2">-->
-<!--              <i class="el-icon-coin"></i>教师用户</el-menu-item>-->
-<!--            <el-menu-item index="5-3">-->
-<!--              <i class="el-icon-connection"></i>学生用户</el-menu-item>-->
-<!--            <el-menu-item index="5-4">-->
-<!--              <i class="el-icon-wallet"></i>家长用户</el-menu-item>-->
-<!--          </el-submenu>-->
+          <el-menu-item index="3-3">
+            <router-link to="">
+              <i class="el-icon-menu"></i>
+              其他
+            </router-link>
+          </el-menu-item>
+        </el-submenu>
+          <el-submenu index="4">
+            <template slot="title">
+              <i class="el-icon-document"></i>
+              <span slot="title">通知管理</span>
+            </template>
+            <el-menu-item index="4-1" >
+              <router-link to="">
+                <i class="el-icon-setting"></i>
+                新建通知
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="4-2" >
+              <router-link to="">
+                <i class="el-icon-guide"></i>
+                历史通知
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="4-3">
+              <router-link to="">
+                <i class="el-icon-menu"></i>
+                重点内容
+              </router-link>
+            </el-menu-item>
+          </el-submenu>
+          <el-submenu index="5">
+            <template slot="title">
+              <i class="el-icon-document"></i>
+              <span slot="title">文件管理</span>
+            </template>
+            <el-menu-item index="5-1" >
+              <router-link to="">
+                <i class="el-icon-setting"></i>
+                文件列表
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="5-2" >
+              <router-link to="">
+                <i class="el-icon-guide"></i>
+                上传文件
+              </router-link>
+            </el-menu-item>
+            <el-menu-item index="5-3">
+              <router-link to="">
+                <i class="el-icon-menu"></i>
+                下载专区
+              </router-link>
+            </el-menu-item>
+          </el-submenu>
         </el-menu>
       </el-aside>
       <el-container>
