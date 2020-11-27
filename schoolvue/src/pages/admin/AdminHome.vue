@@ -124,21 +124,21 @@
               <span slot="title">通知管理</span>
             </template>
             <el-menu-item index="4-1" >
-              <router-link to="">
+              <router-link to="/admin/InfoManage/info">
                 <i class="el-icon-setting"></i>
-                新建通知
+                通知公告
               </router-link>
             </el-menu-item>
             <el-menu-item index="4-2" >
-              <router-link to="">
+              <router-link to="/admin/InfoManage/newinfo">
                 <i class="el-icon-guide"></i>
-                历史通知
+                新建通知
               </router-link>
             </el-menu-item>
             <el-menu-item index="4-3">
-              <router-link to="">
+              <router-link to="/admin/InfoManage/downloadinfo">
                 <i class="el-icon-menu"></i>
-                重点内容
+                附件下载
               </router-link>
             </el-menu-item>
           </el-submenu>

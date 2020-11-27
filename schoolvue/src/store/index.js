@@ -91,7 +91,7 @@ export  default new Vuex.Store({
       commit("userStatus", flag)
     },
     slogin:({commit},obj)=>{
-      commit('setsId',obj.id),commit('setsName',obj.username),commit('setsPwd',obj.password),
+      commit('setsId',obj.userid),commit('setsName',obj.username),commit('setsPwd',obj.password),
         commit('setsRole',obj.role),
         commit('setsStatus',obj.status)
     },
@@ -101,7 +101,7 @@ export  default new Vuex.Store({
         commit('delsStatus')
     },
     sforget:({commit},obj)=>{
-      commit('setsId',obj.id),commit('setsName',obj.username),commit('setsPwd',obj.password),
+      commit('setsId',obj.userid),commit('setsName',obj.username),commit('setsPwd',obj.password),
         commit('setsRole',obj.role),
         commit('setsStatus',obj.status)
     },

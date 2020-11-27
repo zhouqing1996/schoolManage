@@ -43,6 +43,11 @@ import AdminClassInfo from '../pages/admin/JiaoXueManage/ClassInfo'
 import AdminSubjectInfo from '../pages/admin/JiaoXueManage/SubjectInfo'
 //年级管理
 import AdminGradeInfo from '../pages/admin/JiaoXueManage/GradeInfo'
+//通知管理
+import AdminInfoIndex from '../pages/admin/InfoManage/Info'
+import AdminNewInfo from '../pages/admin/InfoManage/NewInfo'
+import AdminLookInfo from '../pages/admin/InfoManage/LookInfo'
+import AdminDownlodInfo from '../pages/admin/InfoManage/DownlodInfo'
 //数据分析
 import AdminUserAnalysis from '../pages/admin/userManage/userAnalysisi'
 
@@ -135,6 +140,38 @@ export default new Router({
             isLogin: true
           },
           component:AdminGradeInfo
+        },
+        {
+          path:'/admin/InfoManage/info',
+          name:'AdminInfo',
+          meta: {
+            isLogin: true
+          },
+          component:AdminInfoIndex
+        },
+        {
+          path:'/admin/InfoManage/newinfo',
+          name:'AdminNewInfo',
+          meta: {
+            isLogin: true
+          },
+          component:AdminNewInfo
+        },
+        {
+          path:'/admin/InfoManage/lookinfo',
+          name:'AdminLookInfo',
+          meta:{
+            isLogin:true
+          },
+          component:AdminLookInfo
+        },
+        {
+          path:'/admin/InfoManage/downloadinfo',
+          name:'AdminDownloadInfo',
+          meta:{
+            isLogin:true
+          },
+          component:AdminDownlodInfo
         }
       ]
     },

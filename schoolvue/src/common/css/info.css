@@ -1,0 +1,103 @@
+/*通知管理*/
+.inputTitle{
+  outline-style: none ;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 14px 14px;
+  width: 620px;
+  font-size: 16px;
+  margin-top: 20px;
+  float: left;
+}
+.inputTitle :focus{
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+.btn2 {
+  width: auto;
+  padding: 7px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: #7F96FE;
+  float: left;
+  margin-left: 5px;
+  margin-top: 17px;
+  margin-bottom: 5px;
+}
+.btn2:hover {
+  background-color: #5FA7FE;
+}
+.content{
+  margin: 20px 30px 30px;
+  text-align: left;
+}
+a{
+  text-decoration: none;
+}
+.file{
+  text-align: left!important;
+  margin: 10px 20px;
+}
+ul li{
+  list-style: none;
+}
+.infoall{
+  text-align: left!important;
+  height: 10px;
+  /*margin: 10px;*/
+}
+.infotime {
+   width: auto;
+   padding: 6px;
+   font-size: 14px;
+   border-radius: 3px;
+   border: none;
+   color: white;
+   background-color: #7F96FE;
+   float: left;
+  margin: 2px 20px 2px 20px;
+}
+.infotitle {
+  width: auto;
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+  color: black;
+  background-color: #FFFFFF;
+  float: left;
+  margin: 2px 20px 2px 20px;
+}
+.delInfo {
+  width: auto;
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: gray;
+  float: left;
+  margin: 2px 20px 2px 20px;
+}
+.delInfo:hover {
+  background-color: #5FA7FE;
+}
+
+.cgeInfo {
+  width: auto;
+  padding: 6px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: goldenrod;
+  float: left;
+  margin: 2px 20px 2px 20px;
+}
+.cgeInfo:hover {
+  background-color: #5FA7FE;
+}
